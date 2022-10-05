@@ -16,18 +16,8 @@ public class Calculator {
         System.out.println(a * b);
     }
     public void divide(int a, int b){
-        float result = a / b;
+        float result = (float)a / b;
         System.out.println(result);
-    }
-}
-
-public class CalculatorMain {
-    public static void main(String[] args) {
-        Calculator userDao = new Calculator();
-        userDao.plus(10, 20);
-        userDao.minus(50,45);
-        userDao.multiple(6,7);
-        userDao.divide(10,20);
     }
 }
 
