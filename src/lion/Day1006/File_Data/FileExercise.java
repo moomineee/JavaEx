@@ -20,3 +20,16 @@ public class FileExercise {
         }
     }
 }
+/*
+/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=50675:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/moomin/IdeaProjects/Java1006/out/production/Java1006 week.day3.fileread.FileExercise
+./Java1006.iml
+./Java1006.iml
+./.DS_Store
+./out
+./a_file
+./.idea
+./src
+
+Process finished with exit code 0
+
+ */
