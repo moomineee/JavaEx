@@ -1,6 +1,6 @@
 # ReadMe
 
-# **Java 학습**
+# [LIKELION] KDT BackEnd School
 
 # **Week 3 - 10. 4 ~ 10. 7**
 
