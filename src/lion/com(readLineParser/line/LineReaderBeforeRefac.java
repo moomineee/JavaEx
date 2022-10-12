@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LineReader {
+public class LineReaderBeforeRefac {
     List<String> readLines(String filename) throws IOException {
         List<String> result = new ArrayList<>();
         BufferedReader br = new BufferedReader((new FileReader(filename)));
@@ -19,7 +19,7 @@ public class LineReader {
 
     public static void main(String[] args) throws IOException {
         String filename = "/Users/moomin/Downloads/서울시 병의원 위치 정보.csv";
-        LineReader lr = new LineReader();
+        LineReaderBeforeRefac lr = new LineReaderBeforeRefac();
         List<String> lines = lr.readLines(filename);
         System.out.println(lines.size());
     }
