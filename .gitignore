@@ -7,6 +7,3 @@
 /dataSources/
 /dataSources.local.xml
 .idea/
-.gradle/
-resources/config/dependencies.txt/
-**/resources/config/dependencies.txt/
