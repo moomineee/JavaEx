@@ -1,5 +1,3 @@
-# ReadMe
-
 # [LIKELION] KDT BackEnd School
 
 # **Week 3 - 10. 4 ~ 10. 7**
@@ -73,3 +71,26 @@
 - Mysql workbench로 Mysql 접속
 - Schema 생성, 테이블 생성 후 데이터 insert
 - Foreign Key와 Primary Key의 차이
+
+## 10. 12(수)
+
+### 알고리즘
+
+- 최대값 구하기
+- 2차원 배열에서의 최대값 구하기
+- 최대값 구현 코드를 refactoring
+    - method 분리, interface 적용(callback)
+    - [https://youtu.be/N6EdNvNQsgI](https://youtu.be/N6EdNvNQsgI)
+
+### File reader 구현
+
+- File reader 구현
+    - [https://youtu.be/A_M_fgto6Q8](https://youtu.be/A_M_fgto6Q8)
+- Interface 적용하여 refactoring
+    - [https://youtu.be/KEPdB0niRyc](https://youtu.be/KEPdB0niRyc)
+
+### 아기사자반
+
+- class, method 쓰는 이유
+- 구구단  코드 구현 및 refacoring
+- 제네릭, 다형성, 인터페이스 이해
