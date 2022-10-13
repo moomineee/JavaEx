@@ -57,7 +57,7 @@
 
 ### 메소드 설계에 대한 고찰
 
-# **Week 4 - 10. 10 ~ 10. 16**
+# Week 4 - 10. 19 ~ 10. 16
 
 ## 10. 11(화)
 
@@ -103,8 +103,8 @@
 
 ### Gradle Build
 
+- Gradle Build에서 Test Class 만들기
+    - [https://youtu.be/Zr8GMuRhLHQ](https://youtu.be/Zr8GMuRhLHQ)
 - InteliJ로 Gradle Build 완성 (ReadLineParser)
 - DB로 읽어올 .sql 쿼리문 작성 (DB file read & write)
 - Test Code 작성 - Gradle Build 기반 UnitTest
-
-##
