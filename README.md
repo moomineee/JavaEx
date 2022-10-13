@@ -94,3 +94,15 @@
 - class, method 쓰는 이유
 - 구구단  코드 구현 및 refacoring
 - 제네릭, 다형성, 인터페이스 이해
+
+## 10. 13(목)
+
+### 버블정렬, 선택정렬
+
+- 버블정렬과 삽입정렬 그 어딘가
+
+## Gradle Build
+
+- InteliJ로 Gradle Build 완성 (ReadLineParser)
+- DB로 읽어올 .sql 쿼리문 작성 (DB file read & write)
+- Test Code 작성 - Gradle Build 기반 UnitTest
