@@ -5,11 +5,12 @@ import com.line.domain.Hospital;
 public class HospitalParser implements Parser<Hospital> {
 
     public String getSubdivision(String name) {
-        String[] subdivisions = {"소아과", "피부과", "성형외과", "정형외과", "산부인과", "관절", "봉합", "화상", "골절", "영유아", "안과", "가정의학과", "비뇨기과", "치과", "내과", "외과" };
+        String[] subdivisions = {"소아과", "이비인후과", "피부과", "성형외과", "정형외과", "산부인과", "관절", "봉합", "화상", "골절", "영유아", "안과", "가정의학과", "비뇨기과", "치과", "내과", "외과" };
         for (String subdivision : subdivisions) {
             if (name.contains(subdivision)) {
                 return subdivision;
             }
+            if (name.contains(subdivision))
         }
         return "";
     }
