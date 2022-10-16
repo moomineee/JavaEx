@@ -1,3 +1,5 @@
+# ReadMe
+
 # [LIKELION] KDT BackEnd School
 
 # **Week 3 - 10. 4 ~ 10. 7**
@@ -108,3 +110,13 @@
 - InteliJ로 Gradle Build 완성 (ReadLineParser)
 - DB로 읽어올 .sql 쿼리문 작성 (DB file read & write)
 - Test Code 작성 - Gradle Build 기반 UnitTest
+
+## 10.14(금)
+
+### 선택 정렬, 재귀
+
+### DB
+
+- .sql 파일 생성
+- Mysql Workbench에서 .sql파일 불러와 데이터 입력
+- workbench 명령어 입력하여 데이터 분류
