@@ -59,7 +59,7 @@
 
 ### 메소드 설계에 대한 고찰
 
-# Week 4 - 10. 19 ~ 10. 16
+# Week 4 - 10. 10 ~ 10. 14
 
 ## 10. 11(화)
 
@@ -120,3 +120,49 @@
 - .sql 파일 생성
 - Mysql Workbench에서 .sql파일 불러와 데이터 입력
 - workbench 명령어 입력하여 데이터 분류
+
+# Week5 - 10.17 ~ 10.21
+
+## 10. 17(월)
+
+### 도형 별찍기
+
+- 직각삼각형, 피라미드 설계, 피라미드 구현
+
+### Java DB연동과 Insert
+
+- DB 접속정보 보안 설정(환경변수 설정)
+- Mysql schema 생성 후 자바로 data insert
+
+### select 구현
+
+## 10. 18(화)
+
+### 도형 별 찍기
+
+- 직사각형, 정사각형
+- 재귀를 이용하여 별 찍기
+
+### DB 코드 구현 및 refactoring
+
+- Insert & select 구현
+- addAndSelect 구현 - testcode 작성
+- 관심사의 분리(토비의 스프링) - refactoring
+- class 추상화
+- interface 적용
+
+## 10. 19(수)
+
+### Stack 구현
+
+- Stack pop, push 구현
+- test code 작성
+
+### Spring 코드 구현 및 refactoring
+
+- connection object class(interface)로 분리 및 test code 수정
+- Factory 적용 - UserDaoFactory, UserDaoTest 작성
+- maven repository에서 spring boot starter jdbc 연동
+- Spring 적용 - test code refactoring
+- Spring (IoC container = ApplicationContext)
+- Spring - Singleton 패턴
