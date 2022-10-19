@@ -7,7 +7,7 @@ public class UserDao {
 
     private ConnectionMaker connectionMaker;
 
-    public UserDao() {
+    public UserDao(LocalConnectionMaker localConnectionMaker) {
         this.connectionMaker = new AWSConnectionMaker();
     }
     // constructor 오버로딩
@@ -75,8 +75,8 @@ public class UserDao {
     }
 
     public static void main(String[] args) {
-        UserDao userDao = new UserDao();
-        userDao.add(new User("10", "Ruru", "1234qwer"));
+        UserDao userDao = new UserDao(new LocalConnectionMaker());
+        userDao.add(new User("28", "Ruru", "1234qwer"));
 //        User user = userDao.findById("6");
 //        System.out.println(user.getName());
     }

@@ -1,7 +1,5 @@
 package com.likelion.dao;
 
-import com.line.dao.ConnectionMaker;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
