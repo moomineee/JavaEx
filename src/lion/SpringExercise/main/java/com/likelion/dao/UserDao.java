@@ -15,6 +15,27 @@ public class UserDao {
         this.cm = cm;
     }
 
+    public int getCount() throws SQLException {
+        Connection c = cm.makeConnection();
+        PreparedStatement ps = c.prepareStatement("select count(*) from users");
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+        int count = rs.getInt(1);
+
+        rs.close();
+        ps.close();
+        c.close();
+        return count;
+    }
+
+    public void deleteAll() throws SQLException {
+        Connection c = cm.makeConnection();
+        PreparedStatement ps = c.prepareStatement("delete from users");
+        ps.executeUpdate();
+        ps.close();
+        c.close();
+    }
+
     public void add(User user) {
         Map<String, String> env = System.getenv();
         try {
@@ -38,7 +59,7 @@ public class UserDao {
         }
     }
 
-    public User findById(String id) {
+    public User findById(String id) throws SQLException {
         Map<String, String> env = System.getenv();
         Connection c;
         try {
@@ -66,7 +87,7 @@ public class UserDao {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         UserDao userDao = new UserDao();
 //        userDao.add();
         User user = userDao.findById("6");
