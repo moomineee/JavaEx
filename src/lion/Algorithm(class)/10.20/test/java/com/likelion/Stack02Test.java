@@ -69,8 +69,21 @@ class Stack02Test {
     @Test
     void realStack() {
         Stack<Integer> st = new Stack<>(); //  실제 stack 구현체는 어떻게 작동할 것인가?
+        st.peek(); // 비었는데 peek하면 emptyStackException
         assertThrows(EmptyStackException.class, () -> {
             st.pop(); // 이렇게 하면 EmptyStackException. pop이 안된다. 왜? 스택이 비어있기 때문에
         });
+    }
+
+    @Test
+    void peek() {  // pop과 비슷하지만 값을 확인만 할 뿐 값을 빼지는 않는다. stack의 맨 위에 있는 값을 이용해 특정 조건 처리를 할 경우 이용.
+        Stack02 st = new Stack02();
+        //stack이 비었는데 peek()하는 경우는?
+        assertThrows(EmptyStackException.class, () -> {
+            st.peek();
+        });
+        st.push(10);
+        int peeked = st.peek();
+        assertEquals(10,peeked);
     }
 }

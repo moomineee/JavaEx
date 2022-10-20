@@ -40,4 +40,9 @@ public class Stack02 {
         boolean isEmpty = this.top == 0;
         return isEmpty;
     }
+
+    public int peek() {
+        if(isEmpty()) throw new EmptyStackException(); // stack이 비어있을 경우 testcode와 같이 exception을 throw 처리.
+        return this.arr[this.top -1]; // pop에서는 --top을 사용했지만 이 방법은 top의 cnt가 내려가므로 top -1을 쓴다.
+    }
 }
