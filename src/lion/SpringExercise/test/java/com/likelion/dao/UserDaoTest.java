@@ -34,24 +34,27 @@ class UserDaoTest {
         this.user1 = new User("1", "kyeonghwan", "1243");
         this.user2 = new User("2", "sohyeon", "1241");
         this.user3 = new User("3", "sujin", "4232");
-
     }
 
     @Test
     void addAndGet() throws SQLException {
 
-
         userDao.deleteAll();
         assertEquals(0, userDao.getCount());
-
-        String id = "29";
-        userDao.add(new User(id, "EternityHwan", "1234"));
+        userDao.add(user1);
         assertEquals(1, userDao.getCount());
+        User user = userDao.findById(user1.getId());
 
-        User user = userDao.findById(id);
-        assertEquals("EternityHwan", user.getName());
-        assertEquals("1234", user.getPassword());
+        assertEquals(user1.getName(), user.getName());
+        assertEquals(user1.getPassword(), user.getPassword());
     }
+
+//    @Test
+//    void selectException() {
+//        assertThrows(EmptyResultDataAccessException.class, () -> {
+//            userDao.findById("0");
+//        });
+//    }
 
     @Test
     void count() throws SQLException {
@@ -65,7 +68,6 @@ class UserDaoTest {
         assertEquals(2,userDao.getCount());
         userDao.add(user3);
         assertEquals(3,userDao.getCount());
-
     }
 
     @Test

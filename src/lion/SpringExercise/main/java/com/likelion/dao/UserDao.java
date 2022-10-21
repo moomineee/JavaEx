@@ -8,6 +8,7 @@ import java.util.Map;
 public class UserDao {
 
     private ConnectionMaker cm;
+
     public UserDao() {
         this.cm = new AwsConnectionMaker();
     }
@@ -16,51 +17,75 @@ public class UserDao {
         this.cm = cm;
     }
 
+    public void jdbcContextWithStatemnetStrategy(StatementStrategy stmt) throws SQLException {
+        Connection c = null;
+        PreparedStatement ps = null;
+        try {
+            c = cm.makeConnection();
+            ps = stmt.makePreparedStatement(c);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw e;
+        } finally { //error가 발생해도 실행되는 블럭
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (c != null) {
+                try {
+                    c.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (c != null) {
+                try {
+                    c.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+    }
     public int getCount() throws SQLException {
-        Connection c = cm.makeConnection();
-        PreparedStatement ps = c.prepareStatement("select count(*) from users");
-        ResultSet rs = ps.executeQuery();
-        rs.next();
-        int count = rs.getInt(1);
-
-        rs.close();
-        ps.close();
-        c.close();
-        return count;
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            c = cm.makeConnection();
+            ps = c.prepareStatement("select count(*) from users");
+            rs = ps.executeQuery();
+            rs.next();
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally {
+            if (ps != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (c != null) {
+                try {
+                    c.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+        return getCount();
     }
 
     public void deleteAll() throws SQLException {
-        Connection c = cm.makeConnection();
-        PreparedStatement ps = c.prepareStatement("delete from users");
-        ps.executeUpdate();
-        ps.close();
-        c.close();
+        Connection c = null;
+        jdbcContextWithStatemnetStrategy(new DeleteAllStrategy());
     }
 
-    public void add(User user) {
-        Map<String, String> env = System.getenv();
-        try {
-            // DB접속 (ex sql workbeanch실행)
-            Connection c = cm.makeConnection();
-
-            // Query문 작성
-            PreparedStatement pstmt = c.prepareStatement("INSERT INTO users(id, name, password) VALUES(?,?,?);");
-            pstmt.setString(1, user.getId());
-            pstmt.setString(2, user.getName());
-            pstmt.setString(3, user.getPassword());
-
-            // Query문 실행
-            pstmt.executeUpdate();
-
-            pstmt.close();
-            c.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public void add (User user) throws SQLException {
+        AddStrategy addStrategy = new AddStrategy(user);
+        jdbcContextWithStatemnetStrategy(addStrategy);
     }
 
-    public User findById(String id) throws SQLException {
+    public User findById (String id) throws SQLException {
         Map<String, String> env = System.getenv();
         Connection c;
         try {
@@ -73,7 +98,7 @@ public class UserDao {
             // Query문 실행
             ResultSet rs = pstmt.executeQuery();
             User user = null;
-            if ( rs.next()) {
+            if (rs.next()) {
                 user = new User(rs.getString("id"), rs.getString("name"),
                         rs.getString("password"));
             }
@@ -81,7 +106,9 @@ public class UserDao {
             pstmt.close();
             c.close();
 
-            if (user == null) throw new EmptyResultDataAccessException(1); // user가 null일때 오류를 잡는 것
+            if (user == null) {
+                throw new EmptyResultDataAccessException(1); // user가 null일때 오류를 잡는 것
+            }
             return user;
 
         } catch (SQLException e) {
@@ -89,7 +116,7 @@ public class UserDao {
         }
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main (String[]args) throws SQLException {
         UserDao userDao = new UserDao();
 //        userDao.add();
         User user = userDao.findById("6");
