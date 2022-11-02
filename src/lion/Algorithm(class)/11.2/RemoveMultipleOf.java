@@ -20,12 +20,12 @@ public class RemoveMultipleOf {
         }
 //        nums.removeIf(num -> num % 2 == 0 && num != 2);
         for (int i = 0; i < nums.size(); i++) {
-            if(nums.get(i) % 2 == 0 && nums.get(i) > 2) {
-                nums.remove(i);
+            if(nums.get(i) % 2 == 0 && nums.get(i) > 2) { // 2의 배수인데 2는 제외
+                nums.remove(i); // 위의 조건에 해당하는 수를 지우고 반환
             }
         }
         System.out.println(nums);
-        System.out.println(nums.size());
+        System.out.println(nums.size() + "개");
     }
 
 }
