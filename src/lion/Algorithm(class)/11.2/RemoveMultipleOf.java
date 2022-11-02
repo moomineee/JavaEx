@@ -19,13 +19,33 @@ public class RemoveMultipleOf {
             nums.add(i);
         }
 //        nums.removeIf(num -> num % 2 == 0 && num != 2);
+        int sr = (int)Math.sqrt(N);
         for (int i = 0; i < nums.size(); i++) {
             if(nums.get(i) % 2 == 0 && nums.get(i) > 2) { // 2의 배수인데 2는 제외
-                nums.remove(i); // 위의 조건에 해당하는 수를 지우고 반환
+                nums.remove(i); // list에서 위의 조건에 해당하는 수를 제거하고 반환
             }
         }
         System.out.println(nums);
         System.out.println(nums.size() + "개");
+
+        // 3의 배수 지우기 & 3 제외
+        for (int i = 0; i < nums.size(); i++) {
+            if(nums.get(i) % 3 == 0 && nums.get(i) > 3) {
+                nums.remove(i);
+            }
+        }
+        System.out.println(nums);
+        System.out.println(nums.size() + "개");
+
+        // 4의 배수 지우기 & 4 제외
+        for (int i = 0; i < nums.size(); i++) {
+            if(nums.get(i) % 4 == 0 && nums.get(i) > 4) {
+                nums.remove(i);
+            }
+        }
+        System.out.println(nums);
+        System.out.println(nums.size() + "개");
+
     }
 
 }
