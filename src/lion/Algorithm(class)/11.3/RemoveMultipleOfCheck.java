@@ -14,7 +14,9 @@ public class RemoveMultipleOfCheck {
 // 3, 4
 // 4, 6
 // 5, 8
-
+//for (int i = 0; i <= 98; i++) {
+//            System.out.printf("%d, %d %n", i+2, i*2 + 2);
+//        }
     public static void main(String[] args) {
 
         int N = 50;
@@ -23,11 +25,20 @@ public class RemoveMultipleOfCheck {
         Arrays.fill(checks, true); // checks를 true로 초기화. 왜? 기본값이 false이기 때문
         for (int i = 0; i < nums.length; i++) {
             nums[i] = i + 2;  // 2~50까지 nums에 채우기
-        } // 여기까지가 문제 풀기 전 초기 세
+        } // 여기까지가 문제 풀기 전 초기 세팅
 
-
-        for (int i = 0; i <= 98; i++) {
-            System.out.printf("%d, %d %n", i+2, i*2 + 2);
+        // 2의 배수 지우기
+        // 0 1 2 3 4 5 6 7  8  9 10 11 12 13 14 15 16 17 18 19 20
+        // 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+        int multipleOf = 2;
+        for (int i = 2; i < nums.length; i+=2) {
+            checks[i] = false;
         }
+        for (int i = 2; i < nums.length; i++) {
+            if (checks[i] != false) {
+                System.out.printf("%d ", i);
+            }
+        }
+        // checks를 참조해서 true인 값들만 nums[i]로 출력
     }
 }
