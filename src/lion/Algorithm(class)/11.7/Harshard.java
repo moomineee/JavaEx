@@ -12,9 +12,13 @@ public class Harshard {
 
         System.out.println(sumOfDigit);
 
-        return false;
+        if ( x / sumOfDigit == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
-
+    
     public static void main(String[] args) {
         Harshard harshard = new Harshard();
         harshard.solution(459);
