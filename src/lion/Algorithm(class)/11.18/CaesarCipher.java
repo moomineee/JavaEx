@@ -5,26 +5,19 @@ public class CaesarCipher {
 
     public String solution(String s, int n) {
         String answer = "";
-
-        char[] ch = s.toCharArray();
-
-        for(char c : ch) {
-            if(c == 32) answer += " ";
-            else {
-                if(c <= 90) {
-                    c += n;
-                    if(c > 90) c -= 26;
-                } else {
-                    c += n;
-                    if(c > 122) c -= 26;
-                }
-                answer += c;
+        for(char ch : s.toCharArray()) {
+            if (ch == ' ') {
+                answer += ch;
+            } else if (ch >= 'a' && ch <= 'z') {
+                answer += (char)('a' + (ch + n - 'a') % 26);
+            } else {
+                answer += (char)('A' + (ch + n - 'A') % 26);
             }
         }
-
+        System.out.println(answer);
         return answer;
     }
-    
+
     public static void main(String[] args) {
 
     }
