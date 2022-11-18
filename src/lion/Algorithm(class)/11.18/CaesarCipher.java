@@ -14,11 +14,11 @@ public class CaesarCipher {
                 answer += (char)('A' + (ch + n - 'A') % 26);
             }
         }
-        System.out.println(answer);
         return answer;
     }
 
     public static void main(String[] args) {
-
+        CaesarCipher caesarCipher = new CaesarCipher();
+        System.out.println(caesarCipher.solution("a B z", 4));
     }
 }
